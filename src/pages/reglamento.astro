@@ -1,0 +1,171 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SiteNav from "../components/SiteNav.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+
+const secciones = [
+  {
+    n: "01",
+    titulo: "Formato del evento",
+    items: [
+      "La competencia consiste en un torneo de eliminación de múltiples rondas.",
+      "En cada ronda, dos o más competidores prepararán café simultáneamente utilizando una AeroPress Coffee Maker.",
+      "Los competidores tendrán cinco minutos para completar todo el proceso de preparación, extracción y presentación de su café.",
+      "Una vez preparado, el café deberá presentarse en recipientes idénticos ante un panel de jueces.",
+      "Los jueces realizarán una evaluación a ciegas basada en el sabor, haciendo una valoración privada para determinar cuál es la mejor preparación.",
+      "En una cuenta sincronizada hasta tres, los jueces señalarán simultáneamente el café de su preferencia.",
+      "El ganador de cada ronda avanzará a la siguiente etapa, mientras que los demás competidores quedarán eliminados.",
+    ],
+  },
+  {
+    n: "02",
+    titulo: "Especificaciones y restricciones del método",
+    items: [
+      "Los competidores solo pueden utilizar una AeroPress en competencia.",
+      "La AeroPress debe ser una AeroPress Original o AeroPress Clear auténtica.",
+      "Deben utilizarse todos los componentes principales: la cámara, el émbolo y la tapa de filtro original.",
+      "No se permiten otras versiones de AeroPress, incluyendo, entre otras, Go, XL o Premium.",
+      "No se permite el uso de ningún otro método de preparación de café en ninguna instancia de la competencia (prensa francesa, pour-over, zero bypass brewers, sifones u otros dispositivos alternativos).",
+    ],
+  },
+  {
+    n: "03",
+    titulo: "Uso de filtros y lineamientos",
+    items: [
+      "Se permite cualquier tipo o marca de filtro, siempre que no reemplace la tapa de filtro de AeroPress.",
+      "Los filtros pueden ser de papel, metal, tela u otro material, siempre que sean neutros en sabor y no aporten sabor al café.",
+      "El filtro debe colocarse dentro de la tapa de filtro y debe ser el mecanismo principal de filtrado.",
+    ],
+  },
+  {
+    n: "04",
+    titulo: "Accesorios y herramientas de preparación",
+    items: [
+      "Se permite el uso de accesorios como molinos, pavas, decantadores, balanzas, removedores, cucharas, temporizadores, termómetros, soportes, tamices, sopladores de aire, herramientas RDT, herramientas WDT, piedras frías y herramientas de dispersión de agua.",
+      "Todos los accesorios deben cumplir con las reglas de “Especificaciones y restricciones del método” y no contradecir ninguna otra norma.",
+      "Como mínimo, deberán contar con al menos tres (3) horas de acceso para práctica y familiarización.",
+    ],
+  },
+  {
+    n: "05",
+    titulo: "Regulaciones de preparación",
+    items: [
+      "Solo se permite café molido y agua como ingredientes.",
+      "Si los organizadores especifican y proveen un café oficial de competencia, será el único permitido.",
+      "Si los organizadores especifican y proveen un agua oficial de competencia, será la única permitida.",
+      "Se permite un máximo de 20 g de café molido por receta.",
+      "Los competidores deben preparar un mínimo de 150 g de café final.",
+      "Se puede agregar agua bypass a cualquier temperatura.",
+      "El café que no sea presentado dentro del límite de 5 minutos no será evaluado.",
+    ],
+  },
+  {
+    n: "06",
+    titulo: "Regulaciones del agua",
+    items: [
+      "El organizador provee agua oficial para el evento. Sólo puede utilizarse esa.",
+    ],
+  },
+  {
+    n: "07",
+    titulo: "Proceso de evaluación",
+    items: [
+      "Cada ronda se juzga mediante técnica de cata a ciegas (cuchara, sorbo y descarte).",
+      "Los nombres de los competidores estarán marcados en la parte inferior de las tazas para permanecer ocultos.",
+      "No existe una hoja de puntuación formal. Los jueces simplemente eligen el café que prefieren.",
+      "Cada juez decide de forma independiente, sin discutir con otros jueces.",
+      "A la cuenta de tres, señalarán simultáneamente su taza elegida.",
+      "El juez principal revelará al ganador levantando la taza ganadora.",
+      "En caso de empate total, el juez principal probará todas las muestras y decidirá al ganador. Esta decisión es definitiva.",
+    ],
+  },
+  {
+    n: "08",
+    titulo: "Preparación previa a la competencia",
+    intro: "Antes de subir al escenario, los competidores pueden:",
+    items: [
+      "Precalentar agua.",
+      "Seleccionar granos.",
+      "Pesar dosis de café.",
+      "Ensamblar la AeroPress.",
+      "Colocar el filtro en la tapa.",
+    ],
+  },
+  {
+    n: "09",
+    titulo: "Tiempo de montaje",
+    items: [
+      "Una vez en el escenario, antes de iniciar el tiempo oficial, podrán: enchufar pava u otros equipos, colocar el equipamiento en posición, precalentar agua en la pava y realizar cualquier acción permitida en “Preparación previa”.",
+      "No podrán: enjuagar el filtro, precalentar o enfriar AeroPress o recipientes, ni colocar café en el molino o molerlo.",
+    ],
+  },
+  {
+    n: "10",
+    titulo: "Tiempo de competencia",
+    items: [
+      "Dentro de los 5 minutos oficiales, los competidores deberán: precalentar o enfriar AeroPress y recipientes (si lo desean), moler el café, preparar la receta y verter todo el café final en el recipiente de evaluación.",
+      "Está estrictamente prohibida cualquier acción que interfiera con otro competidor: soplar residuos hacia su área, golpear o mover una mesa compartida, invadir el espacio asignado o bloquear acceso a equipo, agua o movimientos necesarios.",
+      "Los competidores pueden probar su propio café en cualquier momento durante el tiempo de competencia.",
+    ],
+  },
+  {
+    n: "11",
+    titulo: "Código de conducta",
+    items: [
+      "Se espera comportamiento profesional, espíritu deportivo y respeto hacia jueces y competidores.",
+      "No se permite: recibir coaching externo durante el tiempo de competencia, cuestionar decisiones del jurado durante la ronda, ni ingresar al área de jueces.",
+      "Tiempo de tolerancia para presentarse: máximo 5 minutos. Si no se presenta, queda descalificado.",
+      "El incumplimiento puede derivar en penalización o descalificación.",
+    ],
+  },
+  {
+    n: "12",
+    titulo: "Registro y uso de imagen",
+    items: [
+      "La organización podrá registrar fotografías y videos del evento para uso promocional.",
+    ],
+  },
+];
+---
+
+<Layout
+  title="Reglamento · Competencia Aeropress 2026"
+  description="Reglamento oficial de la Competencia Aeropress 2026 — Coffee Day Salta. Formato, método de preparación, evaluación y código de conducta."
+>
+  <SiteNav />
+
+  <main class="shell">
+    <section class="paper section reglamento" aria-labelledby="reglamento-heading">
+      <a class="back-link" href="/#competencia">← Volver al evento</a>
+
+      <span class="section-eyebrow">Competencia Aeropress 2026</span>
+      <h1 class="section-title" id="reglamento-heading">
+        Reglamento <em>oficial</em>.
+      </h1>
+      <p class="section-lead">Lo que tenés que saber para competir.</p>
+
+      <div class="reg-download">
+        <a class="btn" href="/reglamento-aeropress.pdf" download>
+          Descargar PDF ↓
+        </a>
+      </div>
+
+      <ol class="reg-list">
+        {secciones.map(({ n, titulo, intro, items }) => (
+          <li class="reg-block">
+            <div class="reg-head">
+              <span class="reg-num" aria-hidden="true">{n}</span>
+              <h2 class="reg-title">{titulo}</h2>
+            </div>
+            {intro && <p class="reg-intro">{intro}</p>}
+            <ul class="reg-items">
+              {items.map(item => <li>{item}</li>)}
+            </ul>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <SiteFooter />
+  </main>
+</Layout>
