@@ -1,0 +1,59 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SiteNav from "../components/SiteNav.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Cronograma from "../components/Cronograma.astro";
+import Atracciones from "../components/Atracciones.astro";
+import Eventos from "../components/Eventos.astro";
+import CtaBand from "../components/CtaBand.astro";
+import Ubicacion from "../components/Ubicacion.astro";
+import Faq from "../components/Faq.astro";
+import Sponsors from "../components/Sponsors.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+---
+
+<Layout>
+  <SiteNav />
+
+  <main class="shell">
+    <Hero />
+    <About />
+    <Cronograma />
+    <Atracciones />
+    <Eventos />
+    <CtaBand />
+    <Ubicacion />
+    <Faq />
+    <Sponsors />
+    <SiteFooter />
+  </main>
+
+  <!-- Floating CTA -->
+  <a class="float-cta" href="#cta" id="floatCta">Inscribirme · MD</a>
+</Layout>
+
+<script>
+  // Smooth anchor scroll with sticky nav offset
+  document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href')!.slice(1);
+      const el = document.getElementById(id);
+      if (!el) return;
+      e.preventDefault();
+      const top = el.getBoundingClientRect().top + window.scrollY - 60;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+
+  // Hide floating CTA when CTA band is visible
+  const floatCta = document.getElementById('floatCta')!;
+  const ctaBand  = document.getElementById('cta')!;
+
+  window.addEventListener('scroll', () => {
+    const r = ctaBand.getBoundingClientRect();
+    const visible = r.top < window.innerHeight && r.bottom > 0;
+    floatCta.style.opacity = visible ? '0' : '1';
+    floatCta.style.pointerEvents = visible ? 'none' : 'auto';
+  }, { passive: true });
+</script>

@@ -1,0 +1,28 @@
+/* ─── Design tokens ──────────────────────────────────── */
+:root {
+  /* Colors */
+  --kraft:         #e8c890;
+  --kraft-deep:    #b88248;
+  --kraft-light:   #f3dcb0;
+  --rust:          #5a2208;
+  --coffee:        #6b2a08;
+  --coffee-accent: #a04a18;
+  --ink:           #1d1c1a;
+  --cream:         #fbf2dc;
+  --gold:          #c6993f;
+
+  /* Type families */
+  --f-brand:      "Modak", system-ui;
+  --f-display:    "Modak", system-ui;
+  --f-display-sm: "Lilita One", system-ui;
+  --f-sub:        "Satoshi", "Work Sans", system-ui, sans-serif;
+  --f-hand:       "FaracoHand", "Caveat", cursive;
+  --f-body:       "Work Sans", system-ui, sans-serif;
+  --f-stamp:      "Anton", system-ui, sans-serif;
+
+  /* Spacing */
+  --pad: clamp(20px, 5vw, 32px);
+
+  /* Paper texture */
+  --paper-url: url("/assets/fondo-principal.webp");
+}

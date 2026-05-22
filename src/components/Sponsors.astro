@@ -1,0 +1,33 @@
+---
+const sponsors = [
+  { name: "La Comuna Obrador", img: "lacomuna.png",   ig: "lacomunaobrador" },
+  { name: "Kokoro Café",       img: "kokoro.png",     ig: "holakokoro" },
+  { name: "La Estación Café",  img: "laestacion.png", ig: "estacion_cafesalta" },
+  { name: "Hidalgo",           img: "hidalgo.png",    ig: "alfajoreshidalgo" },
+];
+---
+
+<section class="sponsors" id="sponsors" aria-labelledby="sponsors-heading">
+  <span class="section-eyebrow">Hacen posible</span>
+  <h2 id="sponsors-heading">Sponsors.</h2>
+
+  <ul class="sponsor-grid" role="list">
+    {sponsors.map(({ name, img, ig }) => (
+      <li>
+        <a
+          class="sponsor-tile"
+          href={`https://instagram.com/${ig}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Instagram de ${name}`}
+        >
+          <img src={`/assets/sponsors/${img}`} alt={name} />
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <p style="margin-top:22px; font-family:var(--f-stamp); letter-spacing:.16em; font-size:11px; opacity:.7; text-transform:uppercase;">
+    Specialty Coffee · Salta — Argentina · 2018
+  </p>
+</section>

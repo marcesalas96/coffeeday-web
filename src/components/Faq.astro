@@ -1,0 +1,41 @@
+---
+const items = [
+  {
+    q: "¿Tengo que llevar mi propia Aeropress?",
+    a: "Sí, en la competencia cada participante usa la suya. Si no tenés, avisanos por MD y la organización te facilita una.",
+    open: true,
+  },
+  {
+    q: "¿Hay que pagar entrada general?",
+    a: "No, la entrada al evento es libre. Sólo se paga la inscripción si vas a participar de la competencia o de la cata.",
+  },
+  {
+    q: "¿Qué café se usa en la competencia?",
+    a: "Un mismo grano se entrega a todos los participantes el día del evento. Lo aporta nuestro tostador oficial.",
+  },
+  {
+    q: "¿Puedo participar sin experiencia previa?",
+    a: "Sí. La cata es abierta a todo público. Para la competencia recomendamos haber preparado Aeropress antes — el formato es ágil.",
+  },
+  {
+    q: "¿Hasta cuándo puedo inscribirme?",
+    a: "Hasta agotar cupos o, como máximo, el viernes 22/05 a las 20 hs. Confirmamos por MD una vez recibido el pago.",
+  },
+];
+---
+
+<section class="paper section" id="faq" aria-labelledby="faq-heading">
+  <span class="section-eyebrow">Dudas frecuentes</span>
+  <h2 class="section-title" id="faq-heading">
+    Las preguntas <em>de siempre</em>.
+  </h2>
+
+  <div class="faq">
+    {items.map(({ q, a, open }) => (
+      <details open={open}>
+        <summary>{q}</summary>
+        <p>{a}</p>
+      </details>
+    ))}
+  </div>
+</section>

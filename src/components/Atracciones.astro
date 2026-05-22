@@ -1,0 +1,28 @@
+---
+const items = [
+  { num: "01", name: "DJ en vivo",         desc: "Set continuo durante toda la tarde.",                               tag: "Live"  },
+  { num: "02", name: "Stands de filtrados", desc: "V60, Chemex y prensa — micro-tostadores invitados.",               tag: "Café"  },
+  { num: "03", name: "Panadería",           desc: "Pan de masa madre y medialunas de La Comuna Obrador.",             tag: "Food"  },
+  { num: "04", name: "Alfajores",           desc: "Artesanales, edición limitada para el evento.",                    tag: "Sweet" },
+];
+---
+
+<section class="atracciones" id="atracciones" aria-labelledby="atracciones-heading">
+  <span class="section-eyebrow">En el lugar</span>
+  <h2 class="section-title" id="atracciones-heading">
+    Además de competir, <em>se vive el café</em>.
+  </h2>
+
+  <ul class="attr-list" role="list">
+    {items.map(({ num, name, desc, tag }) => (
+      <li class="attr-row">
+        <span class="attr-num" aria-hidden="true">{num}</span>
+        <div>
+          <p class="attr-name">{name}</p>
+          <p class="attr-desc">{desc}</p>
+        </div>
+        <span class="attr-tag">{tag}</span>
+      </li>
+    ))}
+  </ul>
+</section>

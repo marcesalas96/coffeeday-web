@@ -1,0 +1,52 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Coffee Day · Salta 2026",
+  description = "Café, música y cultura cafetera. Una tarde para tomar, escuchar y competir. Domingo 24 de mayo · Kokoro · Salta.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+
+    <!-- Fonts: self-hosted (FaracoHand only) -->
+    <style>
+      @font-face {
+        font-family: "FaracoHand";
+        src: url("/assets/fonts/FaracoHand.ttf") format("truetype");
+        font-display: swap;
+      }
+    </style>
+
+    <!-- Fonts: Google / Fontshare -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Lilita+One&family=Modak&family=Work+Sans:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700,900&display=swap"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/styles/tokens.css" />
+    <link rel="stylesheet" href="/styles/global.css" />
+    <link rel="stylesheet" href="/styles/nav.css" />
+    <link rel="stylesheet" href="/styles/hero.css" />
+    <link rel="stylesheet" href="/styles/sections.css" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

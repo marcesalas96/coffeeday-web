@@ -1,0 +1,29 @@
+---
+const items = [
+  { time: "15:00 hs", title: "Inicio del evento",       note: "Apertura de puertas, primeros filtrados." },
+  { time: "15:30 hs", title: "Competencia Aeropress",   note: "Rondas clasificatorias.", highlight: true },
+  { time: "17:00 hs", title: "Cata de Café",            note: "8 muestras · Brasil · Colombia · Perú." },
+  { time: "17:30 hs", title: "Semifinales",             note: "Competencia Aeropress.", highlight: true },
+  { time: "18:30 hs", title: "Final Aeropress",         note: "Anuncio del ganador + pase regional 2026.", highlight: true },
+  { time: "20:00 hs", title: "Cierre",                  note: "Hasta el próximo Coffee Day." },
+];
+---
+
+<section class="paper section crono-section" id="crono" aria-labelledby="crono-heading">
+  <span class="section-eyebrow">Cronograma</span>
+  <h2 class="section-title" id="crono-heading">
+    <em>Cinco horas</em>, sin pausas largas.
+  </h2>
+
+  <ol class="timeline">
+    {items.map(({ time, title, note, highlight }) => (
+      <li class="tl-item">
+        <time class="tl-time">{time}</time>
+        <p class="tl-title">
+          {highlight ? <em>{title}</em> : title}
+        </p>
+        <p class="tl-note">{note}</p>
+      </li>
+    ))}
+  </ol>
+</section>

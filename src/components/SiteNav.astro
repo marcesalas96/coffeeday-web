@@ -1,0 +1,95 @@
+---
+---
+
+<header class="nav">
+  <div class="nav-logo">
+    <img src="/assets/logo-color.svg" alt="Coffee Day" width="120" height="42" />
+  </div>
+
+  <nav class="nav-links" aria-label="Navegación principal">
+    <a href="#evento">Evento</a>
+    <a href="#crono">Cronograma</a>
+    <a href="#atracciones">Atracciones</a>
+    <a href="#competencia">Participá</a>
+    <a href="#sponsors">Sponsors</a>
+  </nav>
+
+  <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="drawer">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</header>
+
+<!-- Mobile drawer -->
+<aside class="drawer" id="drawer" aria-hidden="true" aria-label="Menú móvil">
+  <div class="drawer-head">
+    <div class="nav-logo">
+      <img src="/assets/logo-color.svg" alt="Coffee Day" height="54" />
+    </div>
+    <button class="drawer-close" id="drawerClose" aria-label="Cerrar menú">✕</button>
+  </div>
+
+  <nav aria-label="Menú móvil">
+    <a href="#evento">El evento</a>
+    <a href="#crono">Cronograma</a>
+    <a href="#atracciones">Atracciones</a>
+    <a href="#competencia">Competencia Aeropress</a>
+    <a href="#cata">Cata de café</a>
+    <a href="#ubicacion">Cómo llegar</a>
+    <a href="#sponsors">Sponsors</a>
+  </nav>
+
+  <p class="drawer-foot">— Salta · Argentina · 2026 —</p>
+</aside>
+
+<script>
+  const drawer  = document.getElementById('drawer')!;
+  const burger  = document.getElementById('burger')!;
+  const close   = document.getElementById('drawerClose')!;
+
+  function openDrawer() {
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+    burger.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+    burger.setAttribute('aria-expanded', 'false');
+  }
+
+  burger.addEventListener('click', openDrawer);
+  close.addEventListener('click', closeDrawer);
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+
+  // Scroll spy — mark the nav link of the section currently in view
+  const navLinks = Array.from(
+    document.querySelectorAll<HTMLAnchorElement>('.nav-links a')
+  );
+  const sections = navLinks
+    .map(a => document.getElementById(a.getAttribute('href')!.slice(1)))
+    .filter((el): el is HTMLElement => el !== null);
+
+  function setActive(id: string) {
+    navLinks.forEach(a => {
+      const isActive = a.getAttribute('href') === `#${id}`;
+      a.classList.toggle('active', isActive);
+      if (isActive) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
+    });
+  }
+
+  const spy = new IntersectionObserver(
+    entries => {
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible) setActive(visible.target.id);
+    },
+    { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
+  );
+
+  sections.forEach(s => spy.observe(s));
+</script>
