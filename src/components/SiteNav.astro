@@ -9,7 +9,7 @@
   <nav class="nav-links" aria-label="Navegación principal">
     <a href="/#evento">Evento</a>
     <a href="/#crono">Cronograma</a>
-    <a href="/#atracciones">Atracciones</a>
+    <a href="/competidores">Competidores</a>
     <a href="/#competencia">Participá</a>
     <a href="/#sponsors">Sponsors</a>
   </nav>
@@ -34,6 +34,7 @@
     <a href="/#evento">El evento</a>
     <a href="/#crono">Cronograma</a>
     <a href="/#atracciones">Atracciones</a>
+    <a href="/competidores">Competidores</a>
     <a href="/#competencia">Competencia Aeropress</a>
     <a href="/#cata">Cata de café</a>
     <a href="/#ubicacion">Cómo llegar</a>
@@ -64,13 +65,21 @@
   close.addEventListener('click', closeDrawer);
   drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
 
-  // Scroll spy — mark the nav link of the section currently in view.
-  // Only runs on pages that actually contain the target sections.
+  // Active state: full-page route match, then scroll spy for hash sections.
   const navLinks = Array.from(
     document.querySelectorAll<HTMLAnchorElement>('.nav-links a')
   );
   const hashOf = (a: HTMLAnchorElement) =>
     (a.getAttribute('href') ?? '').split('#')[1] ?? '';
+
+  // Mark route-match links (e.g. /competidores) active on their own page.
+  navLinks.forEach(a => {
+    const href = a.getAttribute('href') ?? '';
+    if (!href.includes('#') && href !== '/' && location.pathname.startsWith(href)) {
+      a.classList.add('active');
+      a.setAttribute('aria-current', 'page');
+    }
+  });
 
   const sections = navLinks
     .map(a => document.getElementById(hashOf(a)))

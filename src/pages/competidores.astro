@@ -1,0 +1,54 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SiteNav from "../components/SiteNav.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+
+const competidores = [
+  { nombre: "Joaquín Flores",         file: "joaquin-flores.jpg" },
+  { nombre: "Lautaro Flores",         file: "lautaro-flores.jpg" },
+  { nombre: "Marcos Sánchez Guillou", file: "marcos-sanchez-guillou.jpg" },
+  { nombre: "Lucía Leinecker",        file: "lucia-leinecker.jpg" },
+  { nombre: "Victoria Rueda",         file: "victoria-rueda.jpg" },
+  { nombre: "Rodrigo Cuenca",         file: "rodrigo-cuenca.jpg" },
+  { nombre: "Emilce Espinoza",        file: "emilce-espinoza.jpg" },
+  { nombre: "Camila Portales",        file: "camila-portales.jpg" },
+  { nombre: "Gonzalo Cañizares",      file: "gonzalo-canizares.jpg" },
+  { nombre: "Joel Lima",              file: "joel-lima.jpg" },
+];
+---
+
+<Layout
+  title="Competidores · Coffee Day Salta 2026"
+  description="Los baristas inscriptos en la Competencia Aeropress 2026 de Coffee Day Salta."
+>
+  <SiteNav />
+
+  <main class="shell">
+    <section class="paper section competidores" aria-labelledby="comp-heading">
+      <a class="back-link" href="/#competencia">← Volver al evento</a>
+
+      <span class="section-eyebrow">Aeropress 2026</span>
+      <h1 class="section-title" id="comp-heading">
+        Nuestros <em>competidores</em>.
+      </h1>
+      <p class="section-lead">
+        {competidores.length} baristas listos para el ruedo.
+      </p>
+
+      <ul class="comp-grid" role="list">
+        {competidores.map(({ nombre, file }) => (
+          <li class="comp-card">
+            <img
+              src={`/assets/competidores/${file}`}
+              alt={`Foto de ${nombre}, competidor Aeropress 2026`}
+              loading="lazy"
+            />
+            <p class="comp-name">{nombre}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <SiteFooter />
+  </main>
+</Layout>
